@@ -1,0 +1,19 @@
+.foot {
+  background-color: #282d32;
+}
+
+.title {
+  color: white;
+}
+
+.sub-title {
+  color: #dddddd;
+}
+
+.icons-color {
+  color: #fff;
+}
+
+.link-hover :hover {
+  color: #00ffd4;
+}

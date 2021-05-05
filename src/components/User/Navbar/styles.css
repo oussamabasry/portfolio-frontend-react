@@ -1,0 +1,38 @@
+
+.rgba-gradient-nav {
+    background-color: #eee !important;
+} 
+.navbar-scroll-color{
+    background-color: #fff !important;
+  }
+
+  .rgba-gradient {
+    background-color: #eee;
+   }
+   
+
+ul li {
+  text-align: center;
+  padding: 0 10px 0 0;
+}
+
+ul li a {
+  color: #fff !important;
+  font-size: 13px;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #0275d8 !important;
+}
+
+.navbar {
+  background-color: #fff;
+}
+
+.nav-link,
+.navbar-brand {
+  color: black !important;
+  font-size: 15px;
+}
+
