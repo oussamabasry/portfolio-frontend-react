@@ -52,7 +52,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/#education" data-offset="90">
+              <Link className="nav-link" to="/" data-offset="90">
                 Education
               </Link>
             </li>

@@ -13,5 +13,5 @@ export const deleteEducationApi = (educationId) => {
 };
 
 export const updateEducationApi = (educationId, education) => {
-  return api.put(`/education/${educationId}`, education);
+  return api.put(`/educations/${educationId}`, education);
 };

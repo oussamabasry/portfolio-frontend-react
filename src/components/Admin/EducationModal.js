@@ -1,26 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addEducation } from "../../actions/educationAction";
+import { addEducation, updateEducation } from "../../actions/educationAction";
 
-const AddEducation = () => {
+const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (id === "editEducationModal") {
+      setValue("title", edu.title);
+      setValue("school", edu.school);
+      setValue("city", edu.city);
+      setValue("startDate", "24/03/2020");
+      setValue("endDate", edu.endDate);
+    }
+  }, [edu]);
+
   const onClick = (data) => {
-    dispatch(addEducation(data));
+    if (id === "editEducationModal") {
+      dispatch(updateEducation(edu._id, data));
+    } else {
+      dispatch(addEducation(data));
+    }
     reset();
   };
   return (
     <div>
       <div
         class="modal fade"
-        id="addEducationModal"
+        id={id}
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -29,11 +44,11 @@ const AddEducation = () => {
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Add Education
+                {header}
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                class="btn-close shadow-none"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -129,11 +144,11 @@ const AddEducation = () => {
               </button>
               <button
                 type="button"
-                class="btn btn-primary shadow-none"
+                class={`btn btn-${colorButton} shadow-none`}
                 data-bs-dismiss="modal"
                 onClick={handleSubmit(onClick)}
               >
-                Add
+                {submitValue}
               </button>
             </div>
           </div>
@@ -143,4 +158,4 @@ const AddEducation = () => {
   );
 };
 
-export default AddEducation;
+export default EducationModal;

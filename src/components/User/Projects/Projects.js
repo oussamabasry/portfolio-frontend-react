@@ -17,7 +17,7 @@ const Projects = () => {
     return (
       <div
         key={proj._id}
-        class="col-lg-5 col-11 mb-lg-0 mb-4 mt-5 p-3 me-5 ms-4 py-5 shadow-lg bg-white rounded"
+        class="col-lg-3 col-11 mb-lg-0 mb-4 mt-5 p-3 me-5 ms-4 py-5 shadow-lg bg-white rounded"
       >
         <div class="view overlay rounded z-depth-1">
           <ModalImage

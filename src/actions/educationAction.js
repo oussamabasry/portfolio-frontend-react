@@ -6,7 +6,6 @@ import {
 } from "../apis/educationApi";
 import { toastSuccess, toastError } from "../shared/toast";
 
-
 export const getEducations = () => async (dispatch) => {
   try {
     const { data } = await getEducationsApi();
@@ -41,11 +40,14 @@ export const deleteEducation = (id) => async (dispatch) => {
 export const updateEducation = (id, education) => async (dispatch) => {
   try {
     const { data } = await updateEducationApi(id, education);
+    console.log(data);
     dispatch({
       type: "UPDATE_EDUCATION",
-      payload: data,
+      payload: {...education,_id: data.education._id}
     });
+    toastSuccess("Education Updated Successfully");
   } catch (error) {
     console.log(error);
+    toastError("Error while Updated education");
   }
 };

@@ -4,9 +4,7 @@ import { deleteEducation, updateEducation } from "../actions/educationAction";
 import moment from "moment";
 import AddEducation from "../components/Admin/EducationModal";
 
-function EducationAdmin() {
-  const educations = useSelector((state) => state.educations);
-  const dispatch = useDispatch();
+function Table({ tableData, headerText, headerProprities }) {
   const [selectedEduca, setSelectedEduca] = useState({
     title: "",
     school: "",
@@ -15,18 +13,17 @@ function EducationAdmin() {
     endDate: "",
   });
 
-  const educationsRows = educations.map((edu) => {
+  const dataRows = tableData.map((data) => {
     return (
-      <tr className="p-4" key={edu._id}>
-        <td>{edu.title}</td>
-        <td>{edu.school}</td>
-        <td>{moment(edu.startDate).format("MMM YYYY")}</td>
-        <td>{moment(edu.endDate).format("MMM YYYY")}</td>
+      <tr className="p-4" key={data._id}>
+        {headerProprities.map((data, index) => {
+          <td key={index}>{data[headerProprities[index]]}</td>;
+        })}
         <td>
           <button
             type="button"
             class="btn btn-danger shadow-none"
-            onClick={() => dispatch(deleteEducation(edu._id))}
+            onClick={() => dispatch(deleteEducation(data._id))}
           >
             Delete
           </button>
@@ -77,22 +74,8 @@ function EducationAdmin() {
           </table>
         </div>
       </div>
-      <AddEducation
-        id="addEducationModal"
-        header="Add Education"
-        edu={selectedEduca}
-        submitValue="Add"
-        colorButton="success"
-      />
-      <AddEducation
-        id="editEducationModal"
-        header="Edit Education"
-        edu={selectedEduca}
-        submitValue="Edit"
-        colorButton="warning"
-      />
     </div>
   );
 }
 
-export default EducationAdmin;
+export default Table;

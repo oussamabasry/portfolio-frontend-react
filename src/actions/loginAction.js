@@ -15,7 +15,7 @@ export const loginUser = (authData) => async (dispatch) => {
       type: "SIGN_IN",
       payload: { isLogin: true, token: data.token },
     });
-    history.push("/products");
+    history.push("/education");
   } catch (error) {
     console.log(error);
     toastError("Incorrect email or password");

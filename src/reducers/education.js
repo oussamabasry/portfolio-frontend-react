@@ -11,9 +11,7 @@ const educationReducer = (state = [], action) => {
 
     case "UPDATE_EDUCATION":
       return state.map((edu) =>
-        edu._id === action.payload.education._id
-          ? action.payload.education
-          : edu
+        edu._id === action.payload._id ? action.payload : edu
       );
     default:
       return state;

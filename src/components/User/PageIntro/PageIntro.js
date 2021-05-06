@@ -21,7 +21,7 @@ const PageIntro = () => {
 
                   <a
                     href="#!"
-                    className="btn btn-outline-primary shadow-none py-2 px-4"
+                    className="btn btn-primary shadow-none py-2 px-4"
                   >
                     Contact me
                   </a>
