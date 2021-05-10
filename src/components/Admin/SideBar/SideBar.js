@@ -23,7 +23,7 @@ function SideBar() {
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="sidebar">
+        <div className="sidebar" >
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
@@ -38,8 +38,8 @@ function SideBar() {
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
-                  {item.title == "Logout" ? (
-                    <Link onClick={onLogout}>
+                  {item.title === "Logout" ? (
+                    <Link onClick={onLogout} to="/">
                       {item.icon}
                       <span>{item.title}</span>
                     </Link>

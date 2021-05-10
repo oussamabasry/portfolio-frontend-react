@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getprojects } from "../../../actions/projectAction";
 import ModalImage from "react-modal-image";
 
-const Projects = () => {
+const Projects = ({ reff }) => {
   const domainName = "http://localhost:8000/";
 
   const projects = useSelector((state) => state.projects);
@@ -17,24 +17,20 @@ const Projects = () => {
     return (
       <div
         key={proj._id}
-        class="col-lg-3 col-11 mb-lg-0 mb-4 mt-5 p-3 me-5 ms-4 py-5 shadow-lg bg-white rounded"
+        className="col-lg-4 col-12 mb-lg-0 mb-4 mt-lg-5 py-3 shadow-lg bg-white rounded"
       >
-        <div class="view overlay rounded z-depth-1">
+        <div className="view overlay rounded z-depth-1">
           <ModalImage
             small={domainName + proj.projectImage}
             large={domainName + proj.projectImage}
             alt={proj.title}
           />
-
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
         </div>
-        <div class="card-body pb-0">
-          <h4 class="font-weight-bold my-3">{proj.title}</h4>
-          <p class="grey-text">{proj.description}</p>
+        <div className="card-body pb-0">
+          <h4 className="font-weight-bold ">{proj.title}</h4>
+          <p className="grey-text">{proj.description}</p>
           <p
-            class="mb-3 fw-bold"
+            className=" fw-bold"
             style={{
               fontSize: "14px",
               color: "#55107E",
@@ -44,16 +40,15 @@ const Projects = () => {
             Technologies:
           </p>
           <p style={{ fontSize: "12px" }}> {proj.technologies}</p>
-          {proj.haveLink ? (
-            <a
-              class="btn btn-primary btn-sm shadow-none"
+          {proj.haveLink && (
+            <button
+              className="btn btn-primary btn-sm shadow-none mb-0"
               target="_blank"
+              rel="noreferrer"
               href={proj.link}
             >
-              <i class="fa fa-clone left"></i> View project code
-            </a>
-          ) : (
-            <a></a>
+              <i className="fa fa-clone left"></i> View project code
+            </button>
           )}
         </div>
       </div>
@@ -63,13 +58,14 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      class="text-center py-5"
+      ref={reff}
+      className="text-center py-5"
       style={{ backgroundColor: "#fff" }}
     >
-      <div class="container">
-        <h2 class="h1-responsive font-weight-bold mb-5">Projects</h2>
+      <div className="container">
+        <h2 className="h1-responsive font-weight-bold mb-5">Projects</h2>
 
-        <div class="row text-center d-inline-flex">{project}</div>
+        <div className="row text-center d-inline-flex">{project}</div>
       </div>
     </section>
   );

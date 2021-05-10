@@ -4,14 +4,14 @@ const skillReducer = (state = [], action) => {
       return action.payload;
 
     case "ADD_SKILL":
-      return [...state.skills, action.payload.skill];
+      return [...state, action.payload];
 
     case "DELETE_SKILL":
-      return state.skills.filter((ski) => ski._id !== action.payload);
+      return state.filter((ski) => ski._id !== action.payload);
 
     case "UPDATE_SKILL":
-      return state.skills.map((ski) =>
-        ski._id === action.payload.skill._id ? action.payload.skill : ski
+      return state.map((ski) =>
+        ski._id === action.payload._id ? action.payload : ski
       );
     default:
       return state;

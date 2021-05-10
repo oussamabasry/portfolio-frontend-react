@@ -1,29 +1,33 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { deleteEducation, updateEducation } from "../actions/educationAction";
+import React from "react";
 import moment from "moment";
-import AddEducation from "../components/Admin/EducationModal";
 
-function Table({ tableData, headerText, headerProprities }) {
-  const [selectedEduca, setSelectedEduca] = useState({
-    title: "",
-    school: "",
-    city: "",
-    startDate: "",
-    endDate: "",
-  });
-
+function Table({
+  title,
+  tableData,
+  headerText,
+  headerProprities,
+  idModalEdit,
+  idModalAdd,
+  ondelteClick,
+  onEditClick,
+}) {
   const dataRows = tableData.map((data) => {
     return (
       <tr className="p-4" key={data._id}>
-        {headerProprities.map((data, index) => {
-          <td key={index}>{data[headerProprities[index]]}</td>;
+        {headerProprities.map((prop, index) => {
+          return (
+            <td key={prop}>
+              {prop === "startDate" || prop === "endDate"
+                ? moment(data[prop]).format("MMM YYYY")
+                : data[prop]}
+            </td>
+          );
         })}
         <td>
           <button
             type="button"
-            class="btn btn-danger shadow-none"
-            onClick={() => dispatch(deleteEducation(data._id))}
+            className="btn btn-danger shadow-none"
+            onClick={() => ondelteClick(data)}
           >
             Delete
           </button>
@@ -31,10 +35,10 @@ function Table({ tableData, headerText, headerProprities }) {
         <td>
           <button
             type="button"
-            class="btn btn-warning shadow-none"
+            className="btn btn-warning shadow-none"
             data-bs-toggle="modal"
-            data-bs-target="#editEducationModal"
-            onClick={() => setSelectedEduca(edu)}
+            data-bs-target={`#${idModalEdit}`}
+            onClick={() => onEditClick(data)}
           >
             Edit
           </button>
@@ -43,36 +47,39 @@ function Table({ tableData, headerText, headerProprities }) {
     );
   });
 
-  return (
-    <div className="education">
-      <div className="container">
-        <div className="d-flex justify-content-end mt-5 me-5">
-          <h3 className="me-auto">EDUCATION</h3>
-          <button
-            type="button"
-            class="btn btn-success shadow-none  ms-auto"
-            data-bs-toggle="modal"
-            data-bs-target="#addEducationModal"
-          >
-            Add Education
-          </button>
-        </div>
+  const headersRow = headerText.map((head, index) => {
+    return (
+      <th key={index} scope="col">
+        {head}
+      </th>
+    );
+  });
 
-        <div class="row mt-5">
-          <table class="table table-dark table-striped ">
-            <thead>
-              <tr>
-                <th scope="col">Title</th>
-                <th scope="col">School</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">End Date</th>
-                <th scope="col">Delete</th>
-                <th scope="col">Edit</th>
-              </tr>
-            </thead>
-            <tbody>{educationsRows}</tbody>
-          </table>
-        </div>
+  return (
+    <div>
+      <div className="d-flex justify-content-end mt-5 me-5">
+        <h3 className="me-auto">{title}</h3>
+        <button
+          type="button"
+          className="btn btn-success shadow-none  ms-auto"
+          data-bs-toggle="modal"
+          data-bs-target={`#${idModalAdd}`}
+        >
+          Add {title}
+        </button>
+      </div>
+
+      <div className="row mt-5">
+        <table className="table table-dark table-striped ">
+          <thead>
+            <tr>
+              {headersRow}
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>{dataRows}</tbody>
+        </table>
       </div>
     </div>
   );

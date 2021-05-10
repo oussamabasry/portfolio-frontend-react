@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addEducation, updateEducation } from "../../actions/educationAction";
+import { addSkill, updateSkill } from "../../actions/skillAction";
 
-const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
+const SkillModal = ({ id, header, skil, submitValue, colorButton }) => {
   const {
     register,
     handleSubmit,
@@ -13,20 +13,17 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (id === "editEducation") {
-      setValue("title", edu.title);
-      setValue("school", edu.school);
-      setValue("city", edu.city);
-      setValue("startDate", "24/03/2020");
-      setValue("endDate", edu.endDate);
+    if (id === "editSkill") {
+      setValue("type", skil.type);
+      setValue("level", skil.level);
     }
-  }, [edu, id, setValue]);
+  }, [skil, id, setValue]);
 
   const onClick = (data) => {
-    if (id === "editEducation") {
-      dispatch(updateEducation(edu._id, data));
+    if (id === "editSkill") {
+      dispatch(updateSkill(skil._id, data));
     } else {
-      dispatch(addEducation(data));
+      dispatch(addSkill(data));
     }
     reset();
   };
@@ -61,69 +58,29 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
                         <div className="col-md-12">
                           <div className="md-form mb-0">
                             <label htmlFor="title" className="">
-                              Title
+                              Name
                             </label>
                             <input
                               type="text"
-                              id="title"
-                              name="title"
+                              id="type"
+                              name="type"
                               className="form-control shadow-none"
-                              {...register("title")}
+                              {...register("type")}
                             />
                           </div>
                         </div>
 
                         <div className="col-md-12">
                           <div className="md-form mb-0">
-                            <label htmlFor="school" className="">
-                              School
+                            <label htmlFor="level" className="">
+                              Level
                             </label>
                             <input
                               type="text"
-                              id="school"
-                              name="school"
+                              id="level"
+                              name="level"
                               className="form-control shadow-none"
-                              {...register("school")}
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="md-form mb-0">
-                            <label htmlFor="city" className="">
-                              City
-                            </label>
-                            <input
-                              type="text"
-                              id="city"
-                              name="city"
-                              className="form-control shadow-none"
-                              {...register("city")}
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="md-form mb-0">
-                            <label htmlFor="school" className="">
-                              Start Date
-                            </label>
-                            <input
-                              className="form-control shadow-none"
-                              type="date"
-                              id="example-date-input"
-                              {...register("startDate")}
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="md-form mb-0">
-                            <label htmlFor="school" className="">
-                              End Date
-                            </label>
-                            <input
-                              className="form-control shadow-none"
-                              type="date"
-                              id="example-date-input"
-                              {...register("endDate")}
+                              {...register("level")}
                             />
                           </div>
                         </div>
@@ -157,4 +114,4 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
   );
 };
 
-export default EducationModal;
+export default SkillModal;

@@ -13,5 +13,5 @@ export const deleteProjectApi = (projectId) => {
 };
 
 export const updateProjectApi = (projectId, project) => {
-  return api.put(`/skills/${projectId}`, project);
+  return api.put(`/projects/${projectId}`, project);
 };

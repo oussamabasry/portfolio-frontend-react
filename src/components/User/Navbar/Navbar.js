@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../Navbar/styles.css";
-import logo from "../../../basry-logo.png";
+import logo from "../../../assets/images/basry-logo.png";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ onLinkClick }) => {
   const [toggler, setToggler] = useState(true);
   const [navbar, setNavbar] = useState(false);
 
@@ -21,9 +21,9 @@ const Navbar = () => {
       }`}
     >
       <div className="container-fluid mx-3">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <img alt="logo" src={logo} width="100" />
-        </a>
+        </Link>
         <button
           className="navbar-toggler costmusetoggler shadow-none"
           type="button"
@@ -42,39 +42,73 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav  smooth-scroll ms-lg-5">
             <li className="nav-item">
-              <a className="nav-link" href="#intro">
+              <Link
+                onClick={() => onLinkClick("homeSection")}
+                className="nav-link"
+                to="/"
+              >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#about" data-offset="90">
+              <Link
+                onClick={() => onLinkClick("aboutSection")}
+                className="nav-link"
+                to="/"
+                data-offset="90"
+              >
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/" data-offset="90">
+              <Link
+                onClick={() => onLinkClick("educationSection")}
+                className="nav-link"
+                to="/"
+                data-offset="90"
+              >
                 Education
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#gallery" data-offset="90">
+              <Link
+                onClick={() => onLinkClick("experienceSection")}
+                className="nav-link"
+                to="/"
+                data-offset="90"
+              >
                 Experience
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#testimonials" data-offset="30">
+              <Link
+                to="/"
+                onClick={() => onLinkClick("skillSection")}
+                className="nav-link"
+                data-offset="30"
+              >
                 Skills
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#articles" data-offset="90">
+              <Link
+                onClick={() => onLinkClick("projectSection")}
+                className="nav-link"
+                to="/"
+                data-offset="90"
+              >
                 Projects
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact" data-offset="90">
+              <Link
+                onClick={() => onLinkClick("contactSection")}
+                className="nav-link"
+                data-offset="90"
+                to="/"
+              >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
 

@@ -1,15 +1,19 @@
 import { loginApi } from "../apis/userApi";
 import { toastSuccess, toastError } from "../shared/toast";
 import history from "../shared/history";
-import { setAuthorizationToken } from "../apis/serverApi";
-import axios from "axios";
 import api from "../apis/serverApi";
 
 export const loginUser = (authData) => async (dispatch) => {
   try {
     const { data } = await loginApi(authData);
     api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-   // localStorage.setItem("token", data.token);
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({
+        token: data.token,
+        isLogged: true,
+      })
+    );
     toastSuccess("Login Successfully");
     dispatch({
       type: "SIGN_IN",
@@ -23,8 +27,14 @@ export const loginUser = (authData) => async (dispatch) => {
 };
 
 export const logoutUser = () => {
-   localStorage.setItem("token", null);
-  ///setAuthorizationToken(false);
+  delete api.defaults.headers.common["Authorization"];
+  localStorage.setItem(
+    "userData",
+    JSON.stringify({
+      token: null,
+      isLogged: false,
+    })
+  );
   return {
     type: "LOGOUT",
     payload: { isLogin: false, token: null },

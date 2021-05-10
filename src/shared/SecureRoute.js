@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Redirect, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import isLogin from "./authorization";
 
 const SecureRoute = (props) => {
-  const isLogged = useSelector((state) => state.login.isLogin);
+  const [isLogged] = useState(isLogin);
   return (
     <Route
       path={props.path}

@@ -1,73 +1,36 @@
 import React from "react";
+import profil from "../../../assets/images/profil.png";
+import "./About.css";
 
-const About = () => {
+const About = ({ reff }) => {
   return (
-    <section id="about" class="py-5" style={{backgroundColor:"#fff"}}>
-      <div class="container" >
-        <h2 class="h1-responsive font-weight-bold text-center mb-5">
-          Why is it so great?
+    <section
+      ref={reff}
+      id="about"
+      className="py-5"
+      style={{ backgroundColor: "#fff" }}
+    >
+      <div className="container">
+        <h2 className="h1-responsive font-weight-bold text-center mb-5">
+          About Me
         </h2>
 
-        <p class="lead grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam.
-        </p>
-
-        <div class="row">
-          <div class="col-lg-5 text-center text-lg-left">
-            <img
-              class="img-fluid"
-              src="https://mdbootstrap.com/img/Photos/Others/screens-section.jpg"
-              alt="Sample image"
-            />
+        <div className="row">
+          <div className="d-flex justify-content-center">
+            <img src={profil} alt="profil" />
           </div>
-
-          <div class="col-lg-7">
-            <div class="row mb-3">
-              <div class="col-1">
-                <i class="fa fa-mail-forward fa-lg purple-text"></i>
-              </div>
-
-              <div class="col-xl-10 col-md-11 col-10">
-                <h5 class="font-weight-bold mb-3">Safety</h5>
-                <p class="grey-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit enim
-                  ad minima veniam, quis nostrum exercitationem ullam.
-                  Reprehenderit maiores aperiam assumenda deleniti hic.
-                </p>
-              </div>
-            </div>
-
-            <div class="row mb-3">
-              <div class="col-1">
-                <i class="fa fa-mail-forward fa-lg purple-text"></i>
-              </div>
-
-              <div class="col-xl-10 col-md-11 col-10">
-                <h5 class="font-weight-bold mb-3">Technology</h5>
-                <p class="grey-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit enim
-                  ad minima veniam, quis nostrum exercitationem ullam.
-                  Reprehenderit maiores aperiam assumenda deleniti hic.
-                </p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-1">
-                <i class="fa fa-mail-forward fa-lg purple-text"></i>
-              </div>
-
-              <div class="col-xl-10 col-md-11 col-10">
-                <h5 class="font-weight-bold mb-3">Finance</h5>
-                <p class="grey-text mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit enim
-                  ad minima veniam, quis nostrum exercitationem ullam.
-                  Reprehenderit maiores aperiam assumenda deleniti hic.
-                </p>
-              </div>
-            </div>
+          <div className="col-11 col-md-8 mx-auto mt-3">
+            <p className="text-font text-justify">
+              I am an engineering student in the second year of Software
+              Engineering and Distributed Computer Systems (GLSID) at the Ecole
+              Normale Supérieure d'Education Technique - Mohammedia (ENSET-M).
+              Through my university studies, I acquired strong skills in the
+              field of software engineering. The various projects that I have
+              carried out as well as the internships I have completed have
+              enabled me to develop not only my know-how but also my
+              interpersonal skills. Motivated, I know how to adapt, I have a
+              sense of responsibility and organization.
+            </p>
           </div>
         </div>
       </div>

@@ -4,8 +4,7 @@ import {
   deleteSkillApi,
   updateSkillApi,
 } from "../apis/skillApi";
-//import toastr from "toastr";
-//import "toastr/build/toastr.css";
+import { toastSuccess, toastError } from "../shared/toast";
 
 export const getSkills = () => async (dispatch) => {
   try {
@@ -20,10 +19,10 @@ export const addSkill = (skill) => async (dispatch) => {
   try {
     const { data } = await addSkillApi(skill);
     dispatch({ type: "ADD_SKILL", payload: data });
-    // toastr.success("Post Created succecfully", "Congratulation");
+    toastSuccess("Skill Added Successfully");
   } catch (error) {
     console.log(error);
-    //toastr.warning("Post not Created ", "Erreur");
+    toastError("Error while adding Skill");
   }
 };
 
@@ -31,8 +30,10 @@ export const deleteSkill = (id) => async (dispatch) => {
   try {
     await deleteSkillApi(id);
     dispatch({ type: "DELETE_SKILL", payload: id });
+    toastSuccess("Skill deleted successfully");
   } catch (error) {
     console.log(error);
+    toastError("Error while deleting Skill");
   }
 };
 
@@ -41,9 +42,11 @@ export const updateSkill = (id, skill) => async (dispatch) => {
     const { data } = await updateSkillApi(id, skill);
     dispatch({
       type: "UPDATE_SKILL",
-      payload: data,
+      payload: { ...skill, _id: data.skill._id },
     });
+    toastSuccess("Skill updated successfully");
   } catch (error) {
     console.log(error);
+    toastError("Error while updating Skill");
   }
 };

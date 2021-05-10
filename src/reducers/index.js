@@ -3,6 +3,7 @@ import educationReducer from "./education";
 import experienceReducer from "./experience";
 import skillReducer from "./skill";
 import projectReducer from "./project";
+import messageReducer from "./message";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -10,6 +11,7 @@ const allReducers = combineReducers({
   experiences: experienceReducer,
   skills: skillReducer,
   projects: projectReducer,
+  messages: messageReducer,
   login: loggedReducer,
 });
 

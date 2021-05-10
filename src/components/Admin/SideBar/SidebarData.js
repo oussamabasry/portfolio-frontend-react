@@ -18,13 +18,19 @@ export const SidebarData = [
   },
   {
     title: "Experience",
-    path: "/products",
+    path: "/experience",
     icon: <FaIcons.FaCartPlus />,
     cName: "nav-text",
   },
   {
+    title: "Skills",
+    path: "/skill",
+    icon: <IoIcons.IoMdPeople />,
+    cName: "nav-text",
+  },
+  {
     title: "Project",
-    path: "/team",
+    path: "/project",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text",
   },

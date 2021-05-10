@@ -4,8 +4,7 @@ import {
   deleteProjectApi,
   updateProjectApi,
 } from "../apis/projectApi";
-//import toastr from "toastr";
-//import "toastr/build/toastr.css";
+
 
 export const getprojects = () => async (dispatch) => {
   try {
@@ -20,10 +19,8 @@ export const addProject = (project) => async (dispatch) => {
   try {
     const { data } = await addProjectApi(project);
     dispatch({ type: "ADD_PROJECT", payload: data });
-    // toastr.success("Post Created succecfully", "Congratulation");
   } catch (error) {
     console.log(error);
-    //toastr.warning("Post not Created ", "Erreur");
   }
 };
 

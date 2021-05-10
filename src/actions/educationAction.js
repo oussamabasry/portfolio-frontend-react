@@ -40,7 +40,6 @@ export const deleteEducation = (id) => async (dispatch) => {
 export const updateEducation = (id, education) => async (dispatch) => {
   try {
     const { data } = await updateEducationApi(id, education);
-    console.log(data);
     dispatch({
       type: "UPDATE_EDUCATION",
       payload: {...education,_id: data.education._id}

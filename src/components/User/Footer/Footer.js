@@ -2,16 +2,18 @@ import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ onLinkClick }) => {
   return (
     <footer className="foot text-white pt-5 pb-4">
       <div className="container text-center text-md-left">
         <div className="row text-center text-md-left">
           <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 font-weight-bold title">
-              Oussama Basry
-            </h5>
-            <p className="sub-title">My Portfolio</p>
+            <p className="sub-title">
+              My name is Oussama Basry, I'm a full-stack web developper.
+              <br />
+              Motivated, I know how to adapt, I have a sense of responsibility
+              and organization.
+            </p>
           </div>
 
           <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -19,29 +21,45 @@ const Footer = () => {
               Liens
             </h5>
             <p className="link-hover">
-              <a
-                href="#"
+              <Link
+                onClick={() => onLinkClick("educationSection")}
+                className="sub-title"
+                style={{ textDecoration: "none" }}
+                to="/"
+              >
+                {" "}
+                Education
+              </Link>
+            </p>
+            <p className="link-hover">
+              <Link
+                onClick={() => onLinkClick("experienceSection")}
+                to="/"
                 className="sub-title"
                 style={{ textDecoration: "none" }}
               >
-                {" "}
-                Home
-              </a>
+                Experience
+              </Link>
             </p>
             <p className="link-hover">
-              <a href="#" className="sub-title">
-                {" "}
+              <Link
+                onClick={() => onLinkClick("skillSection")}
+                to="/"
+                className="sub-title"
+                style={{ textDecoration: "none" }}
+              >
+                Skills
+              </Link>
+            </p>
+            <p className="link-hover">
+              <Link
+                onClick={() => onLinkClick("projectSection")}
+                to="/"
+                className="sub-title"
+                style={{ textDecoration: "none" }}
+              >
                 Projects
-              </a>
-            </p>
-            <p className="link-hover">
-              <a
-                href="#"
-                className="sub-title"
-                style={{ textDecoration: "none" }}
-              >
-                Contact
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -62,9 +80,9 @@ const Footer = () => {
             <p>
               {" "}
               Copyright ©2021 All rights reserved by:
-              <a href="#" style={{ textDecoration: "none" }}>
-                <strong className="title link-hover"> Oussama Basry</strong>
-              </a>
+              <span style={{ textDecoration: "none" }}>
+                <strong className="title"> Oussama Basry</strong>
+              </span>
             </p>
           </div>
 
@@ -75,6 +93,7 @@ const Footer = () => {
                   <a
                     href="https://www.facebook.com/ousamabasry"
                     target="_blank"
+                    rel="noreferrer"
                     className="btn-floating btn-sm text-white"
                     style={{ fontSize: "23px" }}
                   >
@@ -85,6 +104,7 @@ const Footer = () => {
                   <a
                     href="https://twitter.com/basry_oussama"
                     target="_blank"
+                    rel="noreferrer"
                     className="btn-floating btn-sm text-white"
                     style={{ fontSize: "23px" }}
                   >
@@ -95,10 +115,22 @@ const Footer = () => {
                   <a
                     href="https://www.linkedin.com/in/oussama-basry/"
                     target="_blank"
+                    rel="noreferrer"
                     className="btn-floating btn-sm text-white"
                     style={{ fontSize: "23px" }}
                   >
                     <i className="fab fa-linkedin-in icons-color"></i>
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a
+                    href="https://github.com/oussamabasry"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-floating btn-sm text-white"
+                    style={{ fontSize: "23px" }}
+                  >
+                    <i className="fab fa-github icons-color"></i>
                   </a>
                 </li>
               </ul>

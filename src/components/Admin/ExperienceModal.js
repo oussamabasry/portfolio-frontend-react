@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addEducation, updateEducation } from "../../actions/educationAction";
+import {
+  addExperience,
+  updateExperience,
+} from "../../actions/experienceAction";
 
-const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
+const ExperienceModal = ({ id, header, exp, submitValue, colorButton }) => {
   const {
     register,
     handleSubmit,
@@ -13,20 +16,22 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (id === "editEducation") {
-      setValue("title", edu.title);
-      setValue("school", edu.school);
-      setValue("city", edu.city);
-      setValue("startDate", "24/03/2020");
-      setValue("endDate", edu.endDate);
+    if (id === "editExperience") {
+      setValue("title", exp.title);
+      setValue("company", exp.company);
+      setValue("city", exp.city);
+      setValue("startDate", exp.startDate);
+      setValue("endDate", exp.endDate);
+      setValue("description", exp.description);
+      setValue("technologies", exp.technologies);
     }
-  }, [edu, id, setValue]);
+  }, [exp, id, setValue]);
 
   const onClick = (data) => {
-    if (id === "editEducation") {
-      dispatch(updateEducation(edu._id, data));
+    if (id === "editExperience") {
+      dispatch(updateExperience(exp._id, data));
     } else {
-      dispatch(addEducation(data));
+      dispatch(addExperience(data));
     }
     reset();
   };
@@ -76,14 +81,14 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
                         <div className="col-md-12">
                           <div className="md-form mb-0">
                             <label htmlFor="school" className="">
-                              School
+                              Company
                             </label>
                             <input
                               type="text"
-                              id="school"
-                              name="school"
+                              id="company"
+                              name="company"
                               className="form-control shadow-none"
-                              {...register("school")}
+                              {...register("company")}
                             />
                           </div>
                         </div>
@@ -127,6 +132,33 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
                             />
                           </div>
                         </div>
+                        <div className="col-md-12">
+                          <div className="md-form">
+                            <label htmlFor="message">Description</label>
+                            <textarea
+                              type="text"
+                              name="description"
+                              id="description"
+                              rows="3"
+                              className="form-control md-textarea shadow-none"
+                              {...register("description")}
+                            />
+                          </div>
+                        </div>
+                        <div className="col-md-12">
+                          <div className="md-form mb-0">
+                            <label htmlFor="city" className="">
+                              Technologies
+                            </label>
+                            <input
+                              type="text"
+                              id="technologies"
+                              name="technologies"
+                              className="form-control shadow-none"
+                              {...register("technologies")}
+                            />
+                          </div>
+                        </div>
                       </div>
                     </form>
                   </div>
@@ -157,4 +189,4 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
   );
 };
 
-export default EducationModal;
+export default ExperienceModal;
