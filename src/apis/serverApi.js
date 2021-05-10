@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL: "https://basryback.herokuapp.com",
 });
 
 export const setAuthorizationToken = (token) => {
@@ -13,3 +13,5 @@ export const setAuthorizationToken = (token) => {
 };
 
 export default api;
+
+export const domainName= "https://basryback.herokuapp.com/";

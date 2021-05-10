@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getprojects } from "../../../actions/projectAction";
 import ModalImage from "react-modal-image";
+import { domainName } from "../../../apis/serverApi";
 
 const Projects = ({ reff }) => {
-  const domainName = "http://localhost:8000/";
-
   const projects = useSelector((state) => state.projects);
   const dispatch = useDispatch();
 

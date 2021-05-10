@@ -8,11 +8,13 @@ const Footer = ({ onLinkClick }) => {
       <div className="container text-center text-md-left">
         <div className="row text-center text-md-left">
           <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 className="text-uppercase mb-4 font-weight-bold title">
+              Oussama Basry
+            </h5>
             <p className="sub-title">
-              My name is Oussama Basry, I'm a full-stack web developper.
-              <br />
-              Motivated, I know how to adapt, I have a sense of responsibility
-              and organization.
+              I am an engineering student in the second year of Software
+              Engineering and Distributed Computer Systems at the Higher Normal
+              School of Technical Education Mohammedia (ENSET-M).
             </p>
           </div>
 
@@ -41,16 +43,7 @@ const Footer = ({ onLinkClick }) => {
                 Experience
               </Link>
             </p>
-            <p className="link-hover">
-              <Link
-                onClick={() => onLinkClick("skillSection")}
-                to="/"
-                className="sub-title"
-                style={{ textDecoration: "none" }}
-              >
-                Skills
-              </Link>
-            </p>
+
             <p className="link-hover">
               <Link
                 onClick={() => onLinkClick("projectSection")}
@@ -59,6 +52,16 @@ const Footer = ({ onLinkClick }) => {
                 style={{ textDecoration: "none" }}
               >
                 Projects
+              </Link>
+            </p>
+            <p className="link-hover">
+              <Link
+                onClick={() => onLinkClick("skillSection")}
+                to="/"
+                className="sub-title"
+                style={{ textDecoration: "none" }}
+              >
+                Skills
               </Link>
             </p>
           </div>

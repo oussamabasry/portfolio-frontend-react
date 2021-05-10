@@ -16,20 +16,20 @@ const About = ({ reff }) => {
         </h2>
 
         <div className="row">
-          <div className="d-flex justify-content-center">
-            <img src={profil} alt="profil" />
+          <div className="col-12 col-lg-4">
+            <img className="d-block mx-auto mb-4" src={profil} alt="profil" />
           </div>
-          <div className="col-11 col-md-8 mx-auto mt-3">
+          <div className="col-lg-8">
             <p className="text-font text-justify">
               I am an engineering student in the second year of Software
-              Engineering and Distributed Computer Systems (GLSID) at the Ecole
-              Normale Supérieure d'Education Technique - Mohammedia (ENSET-M).
-              Through my university studies, I acquired strong skills in the
-              field of software engineering. The various projects that I have
-              carried out as well as the internships I have completed have
-              enabled me to develop not only my know-how but also my
-              interpersonal skills. Motivated, I know how to adapt, I have a
-              sense of responsibility and organization.
+              Engineering and Distributed Computer Systems at the Higher Normal
+              School of Technical Education Mohammedia (ENSET-M).
+              <br /> Through my university studies, I acquired strong skills in
+              the field of software engineering. The various projects and
+              internships that I have carried out have enabled me to develop not
+              only my hard skills but also my soft skills.
+              <br /> Motivated, I know how to adapt, I have a sense of
+              responsibility and organization.
             </p>
           </div>
         </div>

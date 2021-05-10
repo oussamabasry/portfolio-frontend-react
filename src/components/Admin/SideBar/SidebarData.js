@@ -2,6 +2,8 @@ import React from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
+import * as FcIcons from "react-icons/fc";
+import * as GoIcons from "react-icons/go";
 
 export const SidebarData = [
   {
@@ -11,27 +13,27 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Education",
+    title: "Educations",
     path: "/education",
     icon: <IoIcons.IoIosPaper />,
     cName: "nav-text",
   },
   {
-    title: "Experience",
+    title: "Experiences",
     path: "/experience",
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FcIcons.FcBusiness />,
     cName: "nav-text",
   },
   {
     title: "Skills",
     path: "/skill",
-    icon: <IoIcons.IoMdPeople />,
+    icon: <IoIcons.IoMdCodeWorking />,
     cName: "nav-text",
   },
   {
-    title: "Project",
+    title: "Projects",
     path: "/project",
-    icon: <IoIcons.IoMdPeople />,
+    icon: <GoIcons.GoProject />,
     cName: "nav-text",
   },
   {
@@ -43,7 +45,7 @@ export const SidebarData = [
   {
     title: "Logout",
     path: "/support",
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <IoIcons.IoMdLogOut />,
     cName: "nav-text",
   },
 ];

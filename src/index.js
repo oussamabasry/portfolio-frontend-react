@@ -10,6 +10,7 @@ import allReducers from "./reducers";
 import thunk from "redux-thunk";
 import { getEducations } from "./actions/educationAction";
 import { getExperiences } from "./actions/experienceAction";
+import { getprojects } from "./actions/projectAction";
 import { getSkills } from "./actions/skillAction";
 import isLogin from "./shared/authorization";
 import api from "./apis/serverApi";
@@ -19,7 +20,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(allReducers, composeEnhancer(applyMiddleware(thunk)));
 store.dispatch(getEducations());
 store.dispatch(getExperiences());
-//store.dispatch(getprojects());
+store.dispatch(getprojects());
 store.dispatch(getSkills());
 
 if (isLogin) {

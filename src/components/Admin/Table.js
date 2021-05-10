@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { domainName } from "../../apis/serverApi";
 
 function Table({
   title,
@@ -17,9 +18,20 @@ function Table({
         {headerProprities.map((prop, index) => {
           return (
             <td key={prop}>
-              {prop === "startDate" || prop === "endDate"
-                ? moment(data[prop]).format("MMM YYYY")
-                : data[prop]}
+              {(prop === "startDate" || prop === "endDate") &&
+                moment(data[prop]).format("MMM YYYY")}
+              {prop === "projectImage" && (
+                <img
+                  src={domainName + data[prop]}
+                  alt="project"
+                  width="150px"
+                />
+              )}
+              {!(
+                prop === "startDate" ||
+                prop === "endDate" ||
+                prop === "projectImage"
+              ) && data[prop]}
             </td>
           );
         })}

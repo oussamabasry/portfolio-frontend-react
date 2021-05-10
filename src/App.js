@@ -12,6 +12,8 @@ import ExperienceAdmin from "./pages/ExperienceAdmin";
 import SkillAdmin from "./pages/SkillAdmin";
 import MessageAdmin from "./pages/MessageAdmin";
 import isLogin from "./shared/authorization";
+import ProjectAdmin from "./pages/ProjectAdmin";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [isLogged, setIsLogged] = useState(isLogin);
@@ -30,13 +32,15 @@ function App() {
           <Route path="/login" exact component={Login} />
           <SecureRoute path="/education" component={EducationAdmin} />
           <SecureRoute path="/experience" component={ExperienceAdmin} />
+          <SecureRoute path="/project" component={ProjectAdmin} />
           <SecureRoute path="/skill" component={SkillAdmin} />
           <SecureRoute path="/messages" component={MessageAdmin} />
+          <Route path="/" component={NotFound} />
         </Switch>
       </Router>
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
