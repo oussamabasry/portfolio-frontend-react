@@ -25,7 +25,7 @@ Dynamic personal website with admin panel which contains educations, experiences
 
 ## Project Screen Shots
 ### Intro
-![Home page](readmeResources/home.png)
+![Home page](/blob/main/readmeResources/home.png)
 ### About Me
 ![About Me](readmeResources/aboutme.png)
 ### Educations
