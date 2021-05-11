@@ -1,18 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import {
   addExperience,
   updateExperience,
 } from "../../actions/experienceAction";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const ExperienceModal = ({ id, header, exp, submitValue, colorButton }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    setValue,
-  } = useForm();
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const { register, handleSubmit, reset, setValue } = useForm();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,14 +19,16 @@ const ExperienceModal = ({ id, header, exp, submitValue, colorButton }) => {
       setValue("title", exp.title);
       setValue("company", exp.company);
       setValue("city", exp.city);
-      setValue("startDate", exp.startDate);
-      setValue("endDate", exp.endDate);
+      setStartDate(Date.parse(exp.startDate));
+      setEndDate(Date.parse(exp.endDate));
       setValue("description", exp.description);
       setValue("technologies", exp.technologies);
     }
   }, [exp, id, setValue]);
 
   const onClick = (data) => {
+    data.startDate = startDate;
+    data.endDate = endDate;
     if (id === "editExperience") {
       dispatch(updateExperience(exp._id, data));
     } else {
@@ -111,11 +112,9 @@ const ExperienceModal = ({ id, header, exp, submitValue, colorButton }) => {
                             <label htmlFor="school" className="">
                               Start Date
                             </label>
-                            <input
-                              className="form-control shadow-none"
-                              type="date"
-                              id="example-date-input"
-                              {...register("startDate")}
+                            <DatePicker
+                              selected={startDate}
+                              onChange={(date) => setStartDate(date)}
                             />
                           </div>
                         </div>
@@ -124,11 +123,9 @@ const ExperienceModal = ({ id, header, exp, submitValue, colorButton }) => {
                             <label htmlFor="school" className="">
                               End Date
                             </label>
-                            <input
-                              className="form-control shadow-none"
-                              type="date"
-                              id="example-date-input"
-                              {...register("endDate")}
+                            <DatePicker
+                              selected={endDate}
+                              onChange={(date) => setEndDate(date)}
                             />
                           </div>
                         </div>

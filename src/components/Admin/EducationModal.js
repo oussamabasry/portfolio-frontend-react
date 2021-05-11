@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addEducation, updateEducation } from "../../actions/educationAction";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    setValue,
-  } = useForm();
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const { register, handleSubmit, reset, setValue } = useForm();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,12 +16,14 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
       setValue("title", edu.title);
       setValue("school", edu.school);
       setValue("city", edu.city);
-      setValue("startDate", "24/03/2020");
-      setValue("endDate", edu.endDate);
+      setStartDate(Date.parse(edu.startDate));
+      setStartDate(Date.parse(edu.endDate));
     }
   }, [edu, id, setValue]);
 
   const onClick = (data) => {
+    data.startDate = startDate;
+    data.endDate = endDate;
     if (id === "editEducation") {
       dispatch(updateEducation(edu._id, data));
     } else {
@@ -106,11 +107,9 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
                             <label htmlFor="school" className="">
                               Start Date
                             </label>
-                            <input
-                              className="form-control shadow-none"
-                              type="date"
-                              id="example-date-input"
-                              {...register("startDate")}
+                            <DatePicker
+                              selected={startDate}
+                              onChange={(date) => setStartDate(date)}
                             />
                           </div>
                         </div>
@@ -119,11 +118,9 @@ const EducationModal = ({ id, header, edu, submitValue, colorButton }) => {
                             <label htmlFor="school" className="">
                               End Date
                             </label>
-                            <input
-                              className="form-control shadow-none"
-                              type="date"
-                              id="example-date-input"
-                              {...register("endDate")}
+                            <DatePicker
+                              selected={endDate}
+                              onChange={(date) => setEndDate(date)}
                             />
                           </div>
                         </div>

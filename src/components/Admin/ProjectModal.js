@@ -83,7 +83,7 @@ const ProjectModal = ({ id, header, proj, submitValue, colorButton }) => {
                               type="text"
                               name="description"
                               id="description"
-                              rows="3"
+                              rows="2"
                               className="form-control md-textarea shadow-none"
                               {...register("description")}
                             />
@@ -137,7 +137,7 @@ const ProjectModal = ({ id, header, proj, submitValue, colorButton }) => {
                             />
                           </div>
                         </div>
-                        <div className="col-md-5">
+                        <div className="col-md-10">
                           <div className="md-form mb-0">
                             <label htmlFor="link" className="">
                               Image
@@ -152,16 +152,7 @@ const ProjectModal = ({ id, header, proj, submitValue, colorButton }) => {
                             />
                           </div>
                         </div>
-                        {id === "editProject" && (
-                          <div className="col-md-3">
-                            <img
-                              src={domainName + proj.projectImage}
-                              alt="project"
-                              style={{ width: "100px" }}
-                              className="mt-4 ms-5"
-                            />
-                          </div>
-                        )}
+                       
                       </div>
                     </form>
                   </div>

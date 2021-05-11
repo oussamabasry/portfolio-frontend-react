@@ -28,7 +28,7 @@ const Skills = ({ reff }) => {
         <SkillBar
           skills={skills}
           colors={colors}
-          animationDuration={7000}
+          animationDuration={4000}
         ></SkillBar>
       </div>
     </div>
