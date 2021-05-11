@@ -23,10 +23,10 @@ store.dispatch(getExperiences());
 store.dispatch(getprojects());
 store.dispatch(getSkills());
 
-if (isLogin) {
-  api.defaults.headers.common["Authorization"] = `Bearer ${
-    JSON.parse(localStorage.getItem("userData")).token
-  }`;
+const user = JSON.parse(localStorage.getItem("userData"));
+
+if (user !== null) {
+  api.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
 }
 
 ReactDOM.render(
