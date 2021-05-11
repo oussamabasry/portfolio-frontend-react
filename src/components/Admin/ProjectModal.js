@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addProject, updateProject } from "../../actions/projectAction";
-import { domainName } from "../../apis/serverApi";
 
 const ProjectModal = ({ id, header, proj, submitValue, colorButton }) => {
   const { register, handleSubmit, reset, setValue } = useForm();
