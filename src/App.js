@@ -28,14 +28,14 @@ function App() {
       <Router history={history}>
         {isLogged && <SideBar />}
         <Switch>
-          <Route path="/" exact component={PortfolioUI} />
           <Route path="/login" exact component={Login} />
-          <SecureRoute path="/education" component={EducationAdmin} />
-          <SecureRoute path="/experience" component={ExperienceAdmin} />
-          <SecureRoute path="/project" component={ProjectAdmin} />
-          <SecureRoute path="/skill" component={SkillAdmin} />
-          <SecureRoute path="/messages" component={MessageAdmin} />
-          <Route path="/" component={NotFound} />
+          <SecureRoute path="/education" exact component={EducationAdmin} />
+          <SecureRoute path="/experience" exact component={ExperienceAdmin} />
+          <SecureRoute path="/project" exact component={ProjectAdmin} />
+          <SecureRoute path="/skill" exact component={SkillAdmin} />
+          <SecureRoute path="/messages" exact component={MessageAdmin} />
+          <Route path="/" exact component={PortfolioUI} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </Router>
       <ToastContainer
