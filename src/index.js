@@ -23,10 +23,12 @@ store.dispatch(getExperiences());
 store.dispatch(getprojects());
 store.dispatch(getSkills());
 
-if (isLogin) {
-  api.defaults.headers.common["Authorization"] = `Bearer ${
-    JSON.parse(localStorage.getItem("userData")).token
-  }`;
+if (isLogin === true) {
+  if (localStorage.getItem("userData") !== null) {
+    api.defaults.headers.common["Authorization"] = `Bearer ${
+      JSON.parse(localStorage.getItem("userData")).token
+    }`;
+  }
 }
 
 ReactDOM.render(

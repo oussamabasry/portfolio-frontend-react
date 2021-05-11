@@ -1,6 +1,6 @@
 const auth = () => {
   const user = JSON.parse(localStorage.getItem("userData"));
-  if (user && user.isLogged) {
+  if (user !== undefined && user!==null && user.isLogged) {
     return JSON.parse(localStorage.getItem("userData")).isLogged;
   }
   return false;
