@@ -25,39 +25,39 @@ Dynamic personal website with admin panel which contains educations, experiences
 
 ## Project Screen Shots
 ### Intro
-![Home page](/readmeResources/home.png)
+![Home page](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/home.png)
 ### About Me
-![About Me](/readmeResources/aboutme.png)
+![About Me](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/aboutme.png)
 ### Educations
-![Education](readmeResources/education.png)
+![Education](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/education.png)
 ### Experiences
-![Experience](readmeResources/experience.png)
+![Experience](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/experience.png)
 ### Skills
-![Skills](readmeResources/skills.png)
+![Skills](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/skills.png)
 ### Projects
-![Projects](readmeResources/projects.png)
+![Projects](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/projects.png)
 ### Contact Me
-![Contact](readmeResources/contact.png)
+![Contact](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/contact.png)
 ### Footer
-![Footer](readmeResources/footer.png)
+![Footer](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/footer.png)
 ### Login Admin Page
-![Login](readmeResources/adminlogin.png)
+![Login](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/adminlogin.png)
 ### Dashboard Admin
-![Dashboard](readmeResources/adminDashboead.png)
+![Dashboard](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/adminDashboead.png)
 ### Educations Admin
-![Educations Admin](readmeResources/educationAdmin.png)
+![Educations Admin](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/educationAdmin.png)
 ### Add Education
-![Add Education](readmeResources/addEducation.png)
+![Add Education](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/addEducation.png)
 ### Edit Education
-![Edit Education](readmeResources/editEdication.png)
+![Edit Education]https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/editEdication.png)
 ### Experiences Admin
-![Experiences Admin](readmeResources/experienceAdmin.png)
+![Experiences Admin](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/experienceAdmin.png)
 ### Skills Admin
-![Skills Admin](readmeResources/skilsAdmin.png)
+![Skills Admin](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/skilsAdmin.png)
 ### Project Admin
-![Project Admin](readmeResources/projectAdmin.png)
+![Project Admin](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/projectAdmin.png)
 ### Contact Admin
-![Contact Admin](readmeResources/contactAdmin.png)
+![Contact Admin](https://github.com/oussamabasry/portfolio-frontend/blob/main/readmeResources/contactAdmin.png)
  
 
 ## Demo
